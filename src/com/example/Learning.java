@@ -3,9 +3,12 @@ package com.example;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import com.example.classAnimal;
 
 public class Learning {
     public static void main(String[] args) throws IOException {
+        classAnimal gato = new classAnimal("Miau", "gato");
+        System.out.println("O " + gato.especie + " faz " + gato.som + "!");
         System.out.println("Digite um numero:");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line = reader.readLine();
