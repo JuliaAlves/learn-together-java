@@ -9,6 +9,7 @@ public class MyIntegerArray {
     for (int i = 0; i < ints.length; i++) {
       array[i] = ints[i];
     }
+    this.operator? = operator?
   }
 
   public int[] sorted() {
