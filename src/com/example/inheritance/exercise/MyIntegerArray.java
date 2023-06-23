@@ -1,28 +1,21 @@
 package com.example.inheritance.exercise;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MyIntegerArray {
-  private ArrayList<Integer> array;
+  private int[] array;
+  private OperatorType operator?;
 
-  public MyIntegerArray(operador?, int[] ints) {
-    array = new ArrayList<Integer>();
-    for (int i : ints) {
-      array.add(i);
+  public MyIntegerArray(OperatorType operator?, int[] ints) {
+    array = new int[ints.length];
+    for (int i = 0; i < ints.length; i++) {
+      array[i] = ints[i];
     }
   }
 
-  public MyIntegerArray(operador?, List<Integer> ints) {
-    array = new ArrayList<Integer>();
-    array.addAll(ints);
+  public int[] sorted() {
+    return operator?.sort(this.array);
   }
 
-  public ArrayList<Integer> ordered() {
-
-  }
-
-  public ArrayList<Integer> reverse() {
-
+  public int[] reverse() {
+    return operator?.reverse(this.array);
   }
 }
