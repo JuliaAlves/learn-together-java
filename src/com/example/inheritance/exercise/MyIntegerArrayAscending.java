@@ -5,18 +5,20 @@ public class MyIntegerArrayAscending extends MyIntegerArray{
         super(ints);
     }
 
-    public int[] sorted() {
-        for (int i = 0; i < array.length; i++) {
+    @Override
+    public void sorted() {
+        int[] localArray = array;
+        for (int i = 0; i < localArray.length; i++) {
             int minIndex = i;
-            for (int j = i; j < array.length; j++) {
-                if (array[j] < array[minIndex]) {
+            for (int j = i; j < localArray.length; j++) {
+                if (localArray[j] < localArray[minIndex]) {
                     minIndex = j;
                 }
             }
-            int minVal = array[minIndex];
-            array[minIndex] = array[i];
-            array[i] = minVal;
+            int minVal = localArray[minIndex];
+            localArray[minIndex] = localArray[i];
+            localArray[i] = minVal;
         }
-        return array;
+        this.array = localArray;
     }
 }

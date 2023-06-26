@@ -1,5 +1,7 @@
 package com.example.inheritance.exercise;
 
+import java.util.Arrays;
+
 public abstract class MyIntegerArray {
   protected int[] array;
 
@@ -10,5 +12,10 @@ public abstract class MyIntegerArray {
     }
   }
 
-  public abstract int[] sorted();
+  public abstract void sorted();
+
+  @Override
+  public String toString() {
+    return Arrays.toString(array);
+  }
 }

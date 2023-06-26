@@ -7,25 +7,30 @@ public class MyIntegerArrayReverted extends MyIntegerArray{
         super(ints);
     }
 
-    public int[] sorted() {
-        for (int i = 0; i < array.length; i++) {
+    @Override
+    public void sorted() {
+        int[] localArray = array;
+        for (int i = 0; i < localArray.length; i++) {
             int maxIndex = i;
-            for (int j = i; j < array.length; j++) {
-                if (array[j] > array[maxIndex]) {
+            for (int j = i; j < localArray.length; j++) {
+                if (localArray[j] > localArray[maxIndex]) {
                     maxIndex = j;
                 }
             }
-            int maxVal = array[maxIndex];
-            array[maxIndex] = array[i];
-            array[i] = maxVal;
+            int maxVal = localArray[maxIndex];
+            localArray[maxIndex] = localArray[i];
+            localArray[i] = maxVal;
         }
-        return array;
+        array = localArray;
     }
 
     public static void main(String[] args) {
-        MyIntegerArrayReverted array2 = new MyIntegerArrayReverted(new int[]{5, 2, 4, 1, 3});
-        System.out.println(Arrays.toString(array2.sorted()));
         MyIntegerArrayAscending array1 = new MyIntegerArrayAscending(new int[]{5, 2, 4, 1, 3});
-        System.out.println(Arrays.toString(array1.sorted()));
+        array1.sorted();
+        System.out.println(array1);
+
+        MyIntegerArrayReverted array2 = new MyIntegerArrayReverted(new int[]{5, 2, 4, 1, 3});
+        array2.sorted();
+        System.out.println(array2);
     }
 }
