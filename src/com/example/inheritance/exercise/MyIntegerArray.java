@@ -1,22 +1,14 @@
 package com.example.inheritance.exercise;
 
-public class MyIntegerArray {
-  private int[] array;
-  private OperatorType operator?;
+public abstract class MyIntegerArray {
+  protected int[] array;
 
-  public MyIntegerArray(OperatorType operator?, int[] ints) {
+  public MyIntegerArray(int[] ints) {
     array = new int[ints.length];
     for (int i = 0; i < ints.length; i++) {
       array[i] = ints[i];
     }
-    this.operator? = operator?
   }
 
-  public int[] sorted() {
-    return operator?.sort(this.array);
-  }
-
-  public int[] reverse() {
-    return operator?.reverse(this.array);
-  }
+  public abstract int[] sorted();
 }
